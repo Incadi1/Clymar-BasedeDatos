@@ -1,18 +1,17 @@
 /**
- *
  * @author Ingrid Carmona Diaz
  * date 21/Diciembre/2018 Mysql
  * date 03/Enero/2019 java
  */
 package GUI;
 
+
 public class Principal extends javax.swing.JFrame {
 
     public Principal() {
         initComponents();
     }
-
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -22,8 +21,13 @@ public class Principal extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         jPanel = new javax.swing.JPanel();
         jlClymar = new javax.swing.JLabel();
-        BtProductos = new javax.swing.JButton();
+        BtInventario = new javax.swing.JButton();
         BtVentas = new javax.swing.JButton();
+        BtVentas1 = new javax.swing.JButton();
+        BtVentas2 = new javax.swing.JButton();
+        BtVentas3 = new javax.swing.JButton();
+        BtVentas4 = new javax.swing.JButton();
+        BtVentas5 = new javax.swing.JButton();
         jMenuBar2 = new javax.swing.JMenuBar();
         jmOpciones = new javax.swing.JMenu();
         jrmInformacion = new javax.swing.JRadioButtonMenuItem();
@@ -46,14 +50,14 @@ public class Principal extends javax.swing.JFrame {
         jlClymar.setFont(new java.awt.Font("Baskerville Old Face", 1, 50)); // NOI18N
         jlClymar.setText("CLYMAR");
 
-        BtProductos.setFont(new java.awt.Font("Century Schoolbook", 0, 14)); // NOI18N
-        BtProductos.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Productos.png")); // NOI18N
-        BtProductos.setText("PRODUCTOS");
-        BtProductos.setToolTipText("");
-        BtProductos.setMaximumSize(new java.awt.Dimension(253, 151));
-        BtProductos.addActionListener(new java.awt.event.ActionListener() {
+        BtInventario.setFont(new java.awt.Font("Century Schoolbook", 0, 14)); // NOI18N
+        BtInventario.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Productos.png")); // NOI18N
+        BtInventario.setText("INVENTARIO");
+        BtInventario.setToolTipText("");
+        BtInventario.setMaximumSize(new java.awt.Dimension(253, 151));
+        BtInventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtProductosActionPerformed(evt);
+                BtInventarioActionPerformed(evt);
             }
         });
 
@@ -61,21 +65,51 @@ public class Principal extends javax.swing.JFrame {
         BtVentas.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Ventas.png")); // NOI18N
         BtVentas.setText("VENTAS");
 
+        BtVentas1.setFont(new java.awt.Font("Century Schoolbook", 0, 14)); // NOI18N
+        BtVentas1.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Ventas.png")); // NOI18N
+        BtVentas1.setText("VENTAS");
+
+        BtVentas2.setFont(new java.awt.Font("Century Schoolbook", 0, 14)); // NOI18N
+        BtVentas2.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Ventas.png")); // NOI18N
+        BtVentas2.setText("VENTAS");
+
+        BtVentas3.setFont(new java.awt.Font("Century Schoolbook", 0, 14)); // NOI18N
+        BtVentas3.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Ventas.png")); // NOI18N
+        BtVentas3.setText("VENTAS");
+
+        BtVentas4.setFont(new java.awt.Font("Century Schoolbook", 0, 14)); // NOI18N
+        BtVentas4.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Ventas.png")); // NOI18N
+        BtVentas4.setText("VENTAS");
+
+        BtVentas5.setFont(new java.awt.Font("Century Schoolbook", 0, 14)); // NOI18N
+        BtVentas5.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Ventas.png")); // NOI18N
+        BtVentas5.setText("VENTAS");
+
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
         jPanel.setLayout(jPanelLayout);
         jPanelLayout.setHorizontalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(BtProductos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(BtVentas2, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelLayout.createSequentialGroup()
                         .addGap(95, 95, 95)
-                        .addComponent(jlClymar))
+                        .addComponent(jlClymar)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanelLayout.createSequentialGroup()
                         .addGap(81, 81, 81)
-                        .addComponent(BtVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(412, Short.MAX_VALUE))
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(BtVentas3, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtVentas5, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                        .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(BtVentas1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtVentas4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(53, 53, 53))))
         );
         jPanelLayout.setVerticalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,9 +118,17 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jlClymar)
                 .addGap(50, 50, 50)
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(447, Short.MAX_VALUE))
+                    .addComponent(BtInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtVentas1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(78, 78, 78)
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BtVentas2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtVentas3, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtVentas4, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(BtVentas5, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
 
         jmOpciones.setText("Opciones");
@@ -130,9 +172,11 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BtProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtProductosActionPerformed
-        
-    }//GEN-LAST:event_BtProductosActionPerformed
+    private void BtInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInventarioActionPerformed
+        Inventario inve = new Inventario();
+        inve.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtInventarioActionPerformed
 
     private void jrmInformacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrmInformacionActionPerformed
         
@@ -174,8 +218,13 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BtProductos;
+    private javax.swing.JButton BtInventario;
     private javax.swing.JButton BtVentas;
+    private javax.swing.JButton BtVentas1;
+    private javax.swing.JButton BtVentas2;
+    private javax.swing.JButton BtVentas3;
+    private javax.swing.JButton BtVentas4;
+    private javax.swing.JButton BtVentas5;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;

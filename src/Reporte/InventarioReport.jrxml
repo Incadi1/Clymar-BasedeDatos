@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b12d1ce8-5700-4c14-b42c-139703be10c8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#E6DAC3"/>
+		</conditionalStyle>
+	</style>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     inventario.`Fecha` AS inventario_Fecha,
+     inventario.`Referencia` AS inventario_Referencia,
+     inventario.`Cantidad` AS inventario_Cantidad,
+     inventario.`Nombre_Producto` AS inventario_Nombre_Producto,
+     inventario.`Observaciones` AS inventario_Observaciones,
+     inventario.`Valor` AS inventario_Valor,
+     inventario.`Valor_Venta` AS inventario_Valor_Venta
+FROM
+     `inventario` inventario]]>
+	</queryString>
+	<field name="inventario_Fecha" class="java.lang.String"/>
+	<field name="inventario_Referencia" class="java.lang.Integer"/>
+	<field name="inventario_Cantidad" class="java.lang.Integer"/>
+	<field name="inventario_Nombre_Producto" class="java.lang.String"/>
+	<field name="inventario_Observaciones" class="java.lang.String"/>
+	<field name="inventario_Valor" class="java.lang.Integer"/>
+	<field name="inventario_Valor_Venta" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="250" splitType="Stretch">
+			<image>
+				<reportElement x="17" y="10" width="164" height="126" uuid="604eb45c-8f6f-466d-a4ef-dcae0a3dea9f"/>
+				<imageExpression><![CDATA["coffee.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="Title" x="198" y="0" width="552" height="62" uuid="06a9ac8e-fd8c-4a8b-a390-d0ac1feeced5"/>
+				<textElement verticalAlignment="Middle">
+					<font size="44" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[ORTOPEDICOS CLYMAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="374" y="103" width="196" height="22" uuid="d08ca7e2-1271-4990-91b6-a558f15a97f7"/>
+				<textElement>
+					<font fontName="Times New Roman" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[NIT: 1116244623-8]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="168" width="383" height="55" isPrintWhenDetailOverflows="true" uuid="64f5c2d5-3205-4ba7-8d0e-5373ed8afb8b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Correo Electronico: clymar1@hotmail.com 
+Tel: 2253614 
+Cel1: 3108392808 
+Cel2: 3152697360]]></text>
+			</staticText>
+			<image>
+				<reportElement x="633" y="-73" width="219" height="209" uuid="b9c722ee-8cfd-411e-8c2f-736ef24dd0ef"/>
+				<imageExpression><![CDATA["coffee_stain.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="228" y="125" width="434" height="42" isPrintWhenDetailOverflows="true" uuid="e78b7540-8c88-47b9-b022-0b702deb030d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[VENTA, ALQUILER, MANTENIMIENTO Y REPARACIÓN DE TODA CLASE DE SILLAS.
+CAMINADORES, MULETAS, BASTONES, CAMAS HOSPITALARIAS, CAMILLAS PORTATILES, CALZADO ORTOPEDICO Y LINEA BLANDA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Title" x="297" y="62" width="336" height="41" uuid="a8fef7a3-aa24-462f-9d2b-1608fb73b453"/>
+				<textElement verticalAlignment="Middle">
+					<font size="28" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[REPORTE INVENTARIO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="802" height="1" uuid="e79928d4-9fa3-43b8-b7b0-24a7e750c9cf"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="-1" y="0" width="114" height="15" forecolor="#736343" uuid="13f868c5-e2df-48a0-b0cd-b9835b1db4d4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="114" y="0" width="114" height="15" forecolor="#736343" uuid="738c719d-bb8a-4d9d-8823-89271cef2e79"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[REFERENCIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="228" y="0" width="114" height="15" forecolor="#736343" uuid="107c4d62-60b5-43d8-a737-d19e37587b65"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[CANTIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="342" y="0" width="114" height="15" forecolor="#736343" uuid="a288ef59-8228-407a-8479-76aef577f3e1"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="456" y="0" width="114" height="15" forecolor="#736343" uuid="f5578f64-67a1-4218-9dcb-97fc89635a55"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[OBSERVACIONES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="570" y="0" width="114" height="15" forecolor="#736343" uuid="5d24c30a-df18-48ec-86b5-678f3991e2b6"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[VALOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="684" y="0" width="114" height="15" forecolor="#736343" uuid="9ba093ed-26ec-48e3-a731-7e62e06d0326"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[VALOR VENTA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="802" height="15" uuid="643934f8-f767-48ce-bacd-d7ceacf3a7e3"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="114" height="15" uuid="6bd1c996-da94-45e5-990c-e12d2b2fc993"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{inventario_Fecha}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="114" y="0" width="114" height="15" uuid="2b7bf7d5-0fd0-402f-b180-eaa6ca00efa6"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{inventario_Referencia}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="228" y="0" width="114" height="15" uuid="418630e7-33a8-47ca-89e8-6663397d2a68"/>
+					<textElement textAlignment="Center"/>
+					<textFieldExpression><![CDATA[$F{inventario_Cantidad}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="342" y="0" width="114" height="15" uuid="8e46d716-a9f5-4f9d-a28f-1ceb4dcbd67a"/>
+					<textFieldExpression><![CDATA[$F{inventario_Nombre_Producto}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="456" y="0" width="114" height="15" uuid="8c95b78a-06ea-480a-9acd-d821af48a4a0"/>
+					<textFieldExpression><![CDATA[$F{inventario_Observaciones}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="570" y="0" width="114" height="15" uuid="4d2ae978-1dec-436c-acec-3c2fab0da9c1"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{inventario_Valor}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="684" y="0" width="114" height="15" uuid="326c6c04-3cc3-4e7d-a33e-af1771fad6b9"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle"/>
+					<textFieldExpression><![CDATA[$F{inventario_Valor_Venta}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="802" height="1" uuid="c1f10770-31d9-40ee-9f16-aed301d04a0d"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-21" y="1" width="843" height="24" forecolor="#D0B48E" backcolor="#F2EBDF" uuid="c972936a-c037-43d9-9517-fe1c75e79215"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="783" y="1" width="40" height="20" forecolor="#736343" uuid="4c455e7a-4f2f-427d-b502-54061cd9948d"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="703" y="1" width="80" height="20" forecolor="#736343" uuid="be66caf5-83d8-4a1e-9702-d8f7a3b53b10"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="22" y="1" width="197" height="20" forecolor="#736343" uuid="d9532747-4352-41a2-aa44-315b16a57fa6"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
