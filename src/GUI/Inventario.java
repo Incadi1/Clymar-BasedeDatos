@@ -17,6 +17,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class Inventario extends javax.swing.JFrame {
 
@@ -54,7 +60,6 @@ public class Inventario extends javax.swing.JFrame {
         btAgregar = new javax.swing.JButton();
         btLimpiar = new javax.swing.JButton();
         txFecha = new javax.swing.JTextField();
-        btActualizar = new javax.swing.JButton();
         jPaConsulta = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTaConsultaInventario = new javax.swing.JTable();
@@ -64,8 +69,10 @@ public class Inventario extends javax.swing.JFrame {
         btBuscar = new javax.swing.JButton();
         txBuscar = new javax.swing.JTextField();
         jItemBuscar = new javax.swing.JComboBox<>();
-        jdateCalendar = new com.toedter.calendar.JDateChooser();
+        btReporte = new javax.swing.JButton();
         btRegresar = new javax.swing.JButton();
+        btActualizar = new javax.swing.JButton();
+        jdateCalendar = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,18 +113,10 @@ public class Inventario extends javax.swing.JFrame {
         });
 
         btLimpiar.setBackground(new java.awt.Color(246, 246, 246));
-        btLimpiar.setText("LIMPIAR");
+        btLimpiar.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Limpiar8.png")); // NOI18N
         btLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btLimpiarActionPerformed(evt);
-            }
-        });
-
-        btActualizar.setBackground(new java.awt.Color(246, 246, 246));
-        btActualizar.setText("ACTUALIZAR");
-        btActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btActualizarActionPerformed(evt);
             }
         });
 
@@ -136,7 +135,7 @@ public class Inventario extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(txRef, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addGap(44, 44, 44)
                         .addComponent(txCant, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -158,12 +157,10 @@ public class Inventario extends javax.swing.JFrame {
                             .addComponent(txVrVenta))))
                 .addGap(50, 50, 50))
             .addGroup(jPAgregarProductoLayout.createSequentialGroup()
-                .addGap(338, 338, 338)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(btActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(473, 473, 473)
+                .addComponent(btLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPAgregarProductoLayout.setVerticalGroup(
@@ -198,8 +195,9 @@ public class Inventario extends javax.swing.JFrame {
                         .addComponent(txVrVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPAgregarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPAgregarProductoLayout.createSequentialGroup()
+                        .addComponent(btAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(btLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -226,7 +224,7 @@ public class Inventario extends javax.swing.JFrame {
         });
 
         btEliminar.setBackground(new java.awt.Color(246, 246, 246));
-        btEliminar.setText("ELIMINAR");
+        btEliminar.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Borrar10.png")); // NOI18N
         btEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEliminarActionPerformed(evt);
@@ -234,7 +232,7 @@ public class Inventario extends javax.swing.JFrame {
         });
 
         btRefrescar.setBackground(new java.awt.Color(246, 246, 246));
-        btRefrescar.setText("REFRESCAR");
+        btRefrescar.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Refrescar8.png")); // NOI18N
         btRefrescar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btRefrescarActionPerformed(evt);
@@ -242,10 +240,36 @@ public class Inventario extends javax.swing.JFrame {
         });
 
         btBuscar.setBackground(new java.awt.Color(246, 246, 246));
-        btBuscar.setText("BUSCAR");
+        btBuscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\buscar5.png")); // NOI18N
         btBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btBuscarActionPerformed(evt);
+            }
+        });
+
+        btReporte.setBackground(new java.awt.Color(255, 255, 255));
+        btReporte.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Reporte8.png")); // NOI18N
+        btReporte.setMaximumSize(new java.awt.Dimension(100, 100));
+        btReporte.setMinimumSize(new java.awt.Dimension(50, 50));
+        btReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btReporteActionPerformed(evt);
+            }
+        });
+
+        btRegresar.setBackground(new java.awt.Color(255, 255, 255));
+        btRegresar.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\CAsa2.2.png")); // NOI18N
+        btRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegresarActionPerformed(evt);
+            }
+        });
+
+        btActualizar.setBackground(new java.awt.Color(246, 246, 246));
+        btActualizar.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\refresh2-8.png")); // NOI18N
+        btActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btActualizarActionPerformed(evt);
             }
         });
 
@@ -254,45 +278,54 @@ public class Inventario extends javax.swing.JFrame {
         jPaConsultaLayout.setHorizontalGroup(
             jPaConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPaConsultaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jItemBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(btBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btRefrescar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(btEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPaConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPaConsultaLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btRegresar, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12))
+                    .addGroup(jPaConsultaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jItemBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(btBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btRefrescar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(225, 225, 225)
+                        .addComponent(btModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
+                        .addComponent(btEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
-            .addComponent(jScrollPane1)
         );
         jPaConsultaLayout.setVerticalGroup(
             jPaConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPaConsultaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPaConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btEliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-                    .addComponent(btModificar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btRefrescar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btBuscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPaConsultaLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(jPaConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txBuscar)
-                            .addComponent(jItemBuscar))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPaConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPaConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btEliminar)
+                        .addGroup(jPaConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btRefrescar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btBuscar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jItemBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPaConsultaLayout.createSequentialGroup()
+                        .addComponent(btModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4))
+                    .addComponent(btActualizar, javax.swing.GroupLayout.Alignment.LEADING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPaConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btReporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
-
-        btRegresar.setText("REGRESAR");
-        btRegresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btRegresarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -305,40 +338,36 @@ public class Inventario extends javax.swing.JFrame {
                     .addComponent(jPaConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jdateCalendar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btRegresar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jdateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jdateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
+                .addGap(113, 113, 113))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 924, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
+
     void Fechas() {
         DateFormat DateF = DateFormat.getDateInstance();
         Date FechaActual = new Date();
@@ -415,7 +444,6 @@ public class Inventario extends javax.swing.JFrame {
     }
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------    
 
-    
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
     public void Limpiar() {
         txFecha.setText("");
@@ -429,14 +457,12 @@ public class Inventario extends javax.swing.JFrame {
     }
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
 
-    
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
     private void btLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimpiarActionPerformed
         Limpiar();
     }//GEN-LAST:event_btLimpiarActionPerformed
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
 
-    
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
     private void btModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModificarActionPerformed
         int Fila = jTaConsultaInventario.getSelectedRow();
@@ -458,7 +484,6 @@ public class Inventario extends javax.swing.JFrame {
     }//GEN-LAST:event_btModificarActionPerformed
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
 
-    
 //--------------------------------------------------------------------------------------/NO FUNCIONA/--------------------------------------------------------------------------------------
     private void btActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btActualizarActionPerformed
         try {
@@ -478,7 +503,6 @@ public class Inventario extends javax.swing.JFrame {
     }//GEN-LAST:event_btActualizarActionPerformed
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
 
-    
 //---   /FALLA- SELECCIONO EL QUE QUIERO BORRAR U SE ELIMINAN OTROS QUE NO ESTAN SELECCIONADOS/--------------------------------------------------------------------------
     private void btEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarActionPerformed
         int FilaEliminar = jTaConsultaInventario.getSelectedRow();
@@ -490,7 +514,7 @@ public class Inventario extends javax.swing.JFrame {
                 pps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Se elimino el producto");
                 TablaMostrar("");
-                
+
             } catch (SQLException ex) {
                 Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -499,31 +523,29 @@ public class Inventario extends javax.swing.JFrame {
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
- 
+
     private void btRefrescarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRefrescarActionPerformed
         TablaMostrar("");
     }//GEN-LAST:event_btRefrescarActionPerformed
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
 
-    
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
-public void AgregarItem(){
-    jItemBuscar.addItem("Fecha");
-    jItemBuscar.addItem("Referencia");
-    jItemBuscar.addItem("Cantidad");
-    jItemBuscar.addItem("Nombre Producto");
-    jItemBuscar.addItem("Observaciones");
-}
+    public void AgregarItem() {
+        jItemBuscar.addItem("Fecha");
+        jItemBuscar.addItem("Referencia");
+        jItemBuscar.addItem("Cantidad");
+        jItemBuscar.addItem("Nombre Producto");
+        jItemBuscar.addItem("Observaciones");
+    }
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
- 
-    
+
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
 
-        atributo =  jItemBuscar.getSelectedItem().toString();
+        atributo = jItemBuscar.getSelectedItem().toString();
         TablaMostrar(txBuscar.getText());
-        
+
     }//GEN-LAST:event_btBuscarActionPerformed
 
     private void btRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegresarActionPerformed
@@ -531,6 +553,20 @@ public void AgregarItem(){
         prin.setVisible(true);
         dispose();
     }//GEN-LAST:event_btRegresarActionPerformed
+//--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
+
+//-------------------------------------------------/NO MUESTRA EL REPORTE/--------------------------------------------------------------------------------------
+
+    private void btReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btReporteActionPerformed
+        try {
+            JasperReport Reporte = JasperCompileManager.compileReport("InventarioReport.jrmxl");
+            JasperPrint Print = JasperFillManager.fillReport(Reporte, null, this.Conne);
+            JasperViewer View = new JasperViewer(Print, false);
+            View.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btReporteActionPerformed
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
@@ -576,6 +612,7 @@ public void AgregarItem(){
     private javax.swing.JButton btModificar;
     private javax.swing.JButton btRefrescar;
     private javax.swing.JButton btRegresar;
+    private javax.swing.JButton btReporte;
     private javax.swing.JComboBox<String> jItemBuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
