@@ -32,7 +32,10 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="924" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -42,42 +45,43 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder justification="2" position="1" title="INVENTARIO">
-              <Font PropertyName="font" name="Tahoma" size="36" style="3"/>
-            </TitledBorder>
-          </Border>
-        </Property>
       </Properties>
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPAgregarProducto" alignment="1" max="32767" attributes="0"/>
-                      <Component id="jPaConsulta" alignment="0" max="32767" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="jdateCalendar" min="-2" pref="222" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jPaConsulta" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jPanel2" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jPAgregarProducto" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jdateCalendar" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="96" max="32767" attributes="0"/>
+                          <Component id="jPAgregarProducto" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jPAgregarProducto" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPaConsulta" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -115,7 +119,7 @@
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="txRef" min="-2" pref="169" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="225" max="32767" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                               <Component id="txCant" min="-2" pref="169" max="-2" attributes="0"/>
@@ -146,10 +150,16 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btNuevo" min="-2" pref="117" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                       <Component id="btAgregar" min="-2" pref="117" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="473" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="417" max="-2" attributes="0"/>
                       <Component id="btLimpiar" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jdateCalendar" min="-2" pref="222" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -157,6 +167,8 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jdateCalendar" min="-2" pref="32" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -195,7 +207,10 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="btAgregar" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btAgregar" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                                  <Component id="btNuevo" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                              </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Component id="btLimpiar" max="32767" attributes="0"/>
@@ -291,7 +306,7 @@
                   <Color blue="f6" green="f6" red="f6" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\MSI-PC\Desktop\CLYMAR\SistemaClymar\Imagenes\Limpiar8.png"/>
+                  <Image iconType="3" name="/ImagenesInventario/Limpiar8.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -299,6 +314,19 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txFecha">
+            </Component>
+            <Component class="javax.swing.JButton" name="btNuevo">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="f6" green="f6" red="f6" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="NUEVO"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btNuevoActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="jdateCalendar">
             </Component>
           </SubComponents>
         </Container>
@@ -341,7 +369,7 @@
                               <Component id="btModificar" min="-2" pref="117" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="btActualizar" min="-2" pref="44" max="-2" attributes="0"/>
-                              <EmptySpace pref="192" max="32767" attributes="0"/>
+                              <EmptySpace pref="204" max="32767" attributes="0"/>
                               <Component id="btEliminar" min="-2" pref="62" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane1" max="32767" attributes="0"/>
@@ -421,7 +449,7 @@
                   <Color blue="f6" green="f6" red="f6" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\MSI-PC\Desktop\CLYMAR\SistemaClymar\Imagenes\Borrar10.png"/>
+                  <Image iconType="3" name="/ImagenesInventario/Borrar10.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -434,7 +462,7 @@
                   <Color blue="f6" green="f6" red="f6" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\MSI-PC\Desktop\CLYMAR\SistemaClymar\Imagenes\Refrescar8.png"/>
+                  <Image iconType="3" name="/ImagenesInventario/Refrescar8.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -447,7 +475,7 @@
                   <Color blue="f6" green="f6" red="f6" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\MSI-PC\Desktop\CLYMAR\SistemaClymar\Imagenes\buscar5.png"/>
+                  <Image iconType="3" name="/ImagenesInventario/buscar5.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -472,7 +500,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\MSI-PC\Desktop\CLYMAR\SistemaClymar\Imagenes\Reporte8.png"/>
+                  <Image iconType="3" name="/ImagenesInventario/Reporte8.png"/>
                 </Property>
                 <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                   <Dimension value="[100, 100]"/>
@@ -491,7 +519,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\MSI-PC\Desktop\CLYMAR\SistemaClymar\Imagenes\CAsa2.2.png"/>
+                  <Image iconType="3" name="/ImagenesInventario/CAsa2.2.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -504,7 +532,7 @@
                   <Color blue="f6" green="f6" red="f6" type="rgb"/>
                 </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\MSI-PC\Desktop\CLYMAR\SistemaClymar\Imagenes\refresh2-8.png"/>
+                  <Image iconType="3" name="/ImagenesInventario/refresh2-8.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -513,8 +541,21 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="com.toedter.calendar.JDateChooser" name="jdateCalendar">
-        </Component>
+        <Container class="javax.swing.JPanel" name="jPanel2">
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+        </Container>
       </SubComponents>
     </Container>
   </SubComponents>

@@ -23,7 +23,7 @@ public class Principal extends javax.swing.JFrame {
         jlClymar = new javax.swing.JLabel();
         BtInventario = new javax.swing.JButton();
         BtVentas = new javax.swing.JButton();
-        BtVentas1 = new javax.swing.JButton();
+        BtCompras = new javax.swing.JButton();
         BtVentas2 = new javax.swing.JButton();
         BtVentas3 = new javax.swing.JButton();
         BtVentas4 = new javax.swing.JButton();
@@ -51,7 +51,7 @@ public class Principal extends javax.swing.JFrame {
         jlClymar.setText("CLYMAR");
 
         BtInventario.setFont(new java.awt.Font("Century Schoolbook", 0, 14)); // NOI18N
-        BtInventario.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Productos.png")); // NOI18N
+        BtInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesPrincipal/Inventario.png"))); // NOI18N
         BtInventario.setText("INVENTARIO");
         BtInventario.setToolTipText("");
         BtInventario.setMaximumSize(new java.awt.Dimension(253, 151));
@@ -62,27 +62,22 @@ public class Principal extends javax.swing.JFrame {
         });
 
         BtVentas.setFont(new java.awt.Font("Century Schoolbook", 0, 14)); // NOI18N
-        BtVentas.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Ventas.png")); // NOI18N
         BtVentas.setText("VENTAS");
 
-        BtVentas1.setFont(new java.awt.Font("Century Schoolbook", 0, 14)); // NOI18N
-        BtVentas1.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Ventas.png")); // NOI18N
-        BtVentas1.setText("VENTAS");
+        BtCompras.setFont(new java.awt.Font("Century Schoolbook", 0, 14)); // NOI18N
+        BtCompras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesPrincipal/Compras30.png"))); // NOI18N
+        BtCompras.setText("COMPRAS");
 
         BtVentas2.setFont(new java.awt.Font("Century Schoolbook", 0, 14)); // NOI18N
-        BtVentas2.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Ventas.png")); // NOI18N
         BtVentas2.setText("VENTAS");
 
         BtVentas3.setFont(new java.awt.Font("Century Schoolbook", 0, 14)); // NOI18N
-        BtVentas3.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Ventas.png")); // NOI18N
         BtVentas3.setText("VENTAS");
 
         BtVentas4.setFont(new java.awt.Font("Century Schoolbook", 0, 14)); // NOI18N
-        BtVentas4.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Ventas.png")); // NOI18N
         BtVentas4.setText("VENTAS");
 
         BtVentas5.setFont(new java.awt.Font("Century Schoolbook", 0, 14)); // NOI18N
-        BtVentas5.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Ventas.png")); // NOI18N
         BtVentas5.setText("VENTAS");
 
         javax.swing.GroupLayout jPanelLayout = new javax.swing.GroupLayout(jPanel);
@@ -90,10 +85,13 @@ public class Principal extends javax.swing.JFrame {
         jPanelLayout.setHorizontalGroup(
             jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(BtVentas2, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtInventario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelLayout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addComponent(BtVentas2, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(BtInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelLayout.createSequentialGroup()
                         .addGap(95, 95, 95)
@@ -107,7 +105,7 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(BtVentas5, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                         .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BtVentas1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtCompras, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BtVentas4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(53, 53, 53))))
         );
@@ -120,7 +118,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BtVentas1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BtCompras))
                 .addGap(78, 78, 78)
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BtVentas2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,9 +171,9 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtInventarioActionPerformed
-        Inventario inve = new Inventario();
-        inve.setVisible(true);
-        dispose();
+        Inventario inven = new Inventario();
+        inven.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_BtInventarioActionPerformed
 
     private void jrmInformacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrmInformacionActionPerformed
@@ -218,9 +216,9 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtCompras;
     private javax.swing.JButton BtInventario;
     private javax.swing.JButton BtVentas;
-    private javax.swing.JButton BtVentas1;
     private javax.swing.JButton BtVentas2;
     private javax.swing.JButton BtVentas3;
     private javax.swing.JButton BtVentas4;

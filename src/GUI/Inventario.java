@@ -35,6 +35,7 @@ public class Inventario extends javax.swing.JFrame {
         TablaMostrar("");
         Fechas();
         AgregarItem();
+        Bloquear();
     }
 
     @SuppressWarnings("unchecked")
@@ -60,6 +61,8 @@ public class Inventario extends javax.swing.JFrame {
         btAgregar = new javax.swing.JButton();
         btLimpiar = new javax.swing.JButton();
         txFecha = new javax.swing.JTextField();
+        btNuevo = new javax.swing.JButton();
+        jdateCalendar = new com.toedter.calendar.JDateChooser();
         jPaConsulta = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTaConsultaInventario = new javax.swing.JTable();
@@ -72,12 +75,11 @@ public class Inventario extends javax.swing.JFrame {
         btReporte = new javax.swing.JButton();
         btRegresar = new javax.swing.JButton();
         btActualizar = new javax.swing.JButton();
-        jdateCalendar = new com.toedter.calendar.JDateChooser();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "INVENTARIO", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.ABOVE_TOP, new java.awt.Font("Tahoma", 3, 36))); // NOI18N
 
         jPAgregarProducto.setBackground(new java.awt.Color(255, 252, 252));
         jPAgregarProducto.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Agregar nuevo producto...", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 17))); // NOI18N
@@ -113,10 +115,18 @@ public class Inventario extends javax.swing.JFrame {
         });
 
         btLimpiar.setBackground(new java.awt.Color(246, 246, 246));
-        btLimpiar.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Limpiar8.png")); // NOI18N
+        btLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesInventario/Limpiar8.png"))); // NOI18N
         btLimpiar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btLimpiarActionPerformed(evt);
+            }
+        });
+
+        btNuevo.setBackground(new java.awt.Color(246, 246, 246));
+        btNuevo.setText("NUEVO");
+        btNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNuevoActionPerformed(evt);
             }
         });
 
@@ -135,7 +145,7 @@ public class Inventario extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(txRef, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addGap(44, 44, 44)
                         .addComponent(txCant, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -158,15 +168,22 @@ public class Inventario extends javax.swing.JFrame {
                 .addGap(50, 50, 50))
             .addGroup(jPAgregarProductoLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
                 .addComponent(btAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(473, 473, 473)
+                .addGap(417, 417, 417)
                 .addComponent(btLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPAgregarProductoLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jdateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPAgregarProductoLayout.setVerticalGroup(
             jPAgregarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPAgregarProductoLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jdateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addGroup(jPAgregarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPAgregarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1)
@@ -196,7 +213,9 @@ public class Inventario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPAgregarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPAgregarProductoLayout.createSequentialGroup()
-                        .addComponent(btAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPAgregarProductoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(btLimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -224,7 +243,7 @@ public class Inventario extends javax.swing.JFrame {
         });
 
         btEliminar.setBackground(new java.awt.Color(246, 246, 246));
-        btEliminar.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Borrar10.png")); // NOI18N
+        btEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesInventario/Borrar10.png"))); // NOI18N
         btEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btEliminarActionPerformed(evt);
@@ -232,7 +251,7 @@ public class Inventario extends javax.swing.JFrame {
         });
 
         btRefrescar.setBackground(new java.awt.Color(246, 246, 246));
-        btRefrescar.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Refrescar8.png")); // NOI18N
+        btRefrescar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesInventario/Refrescar8.png"))); // NOI18N
         btRefrescar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btRefrescarActionPerformed(evt);
@@ -240,7 +259,7 @@ public class Inventario extends javax.swing.JFrame {
         });
 
         btBuscar.setBackground(new java.awt.Color(246, 246, 246));
-        btBuscar.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\buscar5.png")); // NOI18N
+        btBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesInventario/buscar5.png"))); // NOI18N
         btBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btBuscarActionPerformed(evt);
@@ -248,7 +267,7 @@ public class Inventario extends javax.swing.JFrame {
         });
 
         btReporte.setBackground(new java.awt.Color(255, 255, 255));
-        btReporte.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\Reporte8.png")); // NOI18N
+        btReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesInventario/Reporte8.png"))); // NOI18N
         btReporte.setMaximumSize(new java.awt.Dimension(100, 100));
         btReporte.setMinimumSize(new java.awt.Dimension(50, 50));
         btReporte.addActionListener(new java.awt.event.ActionListener() {
@@ -258,7 +277,7 @@ public class Inventario extends javax.swing.JFrame {
         });
 
         btRegresar.setBackground(new java.awt.Color(255, 255, 255));
-        btRegresar.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\CAsa2.2.png")); // NOI18N
+        btRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesInventario/CAsa2.2.png"))); // NOI18N
         btRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btRegresarActionPerformed(evt);
@@ -266,7 +285,7 @@ public class Inventario extends javax.swing.JFrame {
         });
 
         btActualizar.setBackground(new java.awt.Color(246, 246, 246));
-        btActualizar.setIcon(new javax.swing.ImageIcon("C:\\Users\\MSI-PC\\Desktop\\CLYMAR\\SistemaClymar\\Imagenes\\refresh2-8.png")); // NOI18N
+        btActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesInventario/refresh2-8.png"))); // NOI18N
         btActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btActualizarActionPerformed(evt);
@@ -298,7 +317,7 @@ public class Inventario extends javax.swing.JFrame {
                         .addComponent(btModificar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 204, Short.MAX_VALUE)
                         .addComponent(btEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
@@ -327,30 +346,45 @@ public class Inventario extends javax.swing.JFrame {
                     .addComponent(btRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPAgregarProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPaConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jdateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPaConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPAgregarProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jdateCalendar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 96, Short.MAX_VALUE)
+                        .addComponent(jPAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jPAgregarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPaConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(113, 113, 113))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -361,7 +395,9 @@ public class Inventario extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 924, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -391,6 +427,11 @@ public class Inventario extends javax.swing.JFrame {
             pps.executeUpdate();
             JOptionPane.showMessageDialog(null, "¡Se han agregado los productos!");
             TablaMostrar("");
+            
+            Limpiar();
+            Bloquear();
+            
+            
 
         } catch (SQLException ex) {
             Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
@@ -460,6 +501,7 @@ public class Inventario extends javax.swing.JFrame {
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
     private void btLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimpiarActionPerformed
         Limpiar();
+        Bloquear();
     }//GEN-LAST:event_btLimpiarActionPerformed
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
 
@@ -477,6 +519,11 @@ public class Inventario extends javax.swing.JFrame {
             txVrProduto.setText(jTaConsultaInventario.getValueAt(Fila, 5).toString());
             txVrVenta.setText(jTaConsultaInventario.getValueAt(Fila, 6).toString());
             txBuscar.setText(jTaConsultaInventario.getValueAt(Fila, 1).toString());
+            Desbloquear();
+            btLimpiar.setEnabled(true);
+            btActualizar.setEnabled(true);
+            btNuevo.setEnabled(true);
+            
         } else {
             JOptionPane.showMessageDialog(null, "¡Casilla no seleccionada!");
         }
@@ -495,6 +542,8 @@ public class Inventario extends javax.swing.JFrame {
 
             Limpiar();
             TablaMostrar("");
+            Bloquear();
+            
         } catch (SQLException ex) {
             Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -551,7 +600,7 @@ public class Inventario extends javax.swing.JFrame {
     private void btRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegresarActionPerformed
         Principal prin = new Principal();
         prin.setVisible(true);
-        dispose();
+        this.dispose();
     }//GEN-LAST:event_btRegresarActionPerformed
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
 
@@ -567,6 +616,42 @@ public class Inventario extends javax.swing.JFrame {
             Logger.getLogger(Inventario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btReporteActionPerformed
+
+    
+    //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
+    public void Bloquear(){
+        txFecha.setEditable(false);
+        txNomProducto.setEditable(false);
+        txObservaciones.setEditable(false);
+        txRef.setEditable(false);
+        txVrProduto.setEditable(false);
+        txVrVenta.setEditable(false);
+        txCant.setEditable(false);
+        
+        btAgregar.setEnabled(false);
+        btActualizar.setEnabled(false);
+        btLimpiar.setEnabled(false);
+        btNuevo.setEnabled(true);
+    }
+//--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
+ public void Desbloquear(){
+        txFecha.setEditable(true);
+        txNomProducto.setEditable(true);
+        txObservaciones.setEditable(true);
+        txRef.setEditable(true);
+        txVrProduto.setEditable(true);
+        txVrVenta.setEditable(true);
+        txCant.setEditable(true);
+        
+    
+ }
+    private void btNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNuevoActionPerformed
+        Desbloquear();
+        btAgregar.setEnabled(true);
+        btLimpiar.setEnabled(true);
+        btNuevo.setEnabled(false);
+    }//GEN-LAST:event_btNuevoActionPerformed
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
@@ -597,8 +682,10 @@ public class Inventario extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Inventario().setVisible(true);
+                
             }
         });
     }
@@ -610,6 +697,7 @@ public class Inventario extends javax.swing.JFrame {
     private javax.swing.JButton btEliminar;
     private javax.swing.JButton btLimpiar;
     private javax.swing.JButton btModificar;
+    private javax.swing.JButton btNuevo;
     private javax.swing.JButton btRefrescar;
     private javax.swing.JButton btRegresar;
     private javax.swing.JButton btReporte;
@@ -624,6 +712,7 @@ public class Inventario extends javax.swing.JFrame {
     private javax.swing.JPanel jPAgregarProducto;
     private javax.swing.JPanel jPaConsulta;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTaConsultaInventario;
     private com.toedter.calendar.JDateChooser jdateCalendar;
