@@ -113,7 +113,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
-                          <Component id="BtVentas2" min="-2" pref="277" max="-2" attributes="0"/>
+                          <Component id="BtClientes" min="-2" pref="277" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
@@ -157,7 +157,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="BtVentas2" alignment="3" min="-2" pref="149" max="-2" attributes="0"/>
+                      <Component id="BtClientes" alignment="3" min="-2" pref="149" max="-2" attributes="0"/>
                       <Component id="BtVentas3" alignment="3" min="-2" pref="149" max="-2" attributes="0"/>
                       <Component id="BtVentas4" alignment="3" min="-2" pref="149" max="-2" attributes="0"/>
                   </Group>
@@ -214,13 +214,16 @@
             <Property name="text" type="java.lang.String" value="COMPRAS"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="BtVentas2">
+        <Component class="javax.swing.JButton" name="BtClientes">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Century Schoolbook" size="14" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="VENTAS"/>
+            <Property name="text" type="java.lang.String" value="REGISTRO CLIENTES"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtClientesActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BtVentas3">
           <Properties>

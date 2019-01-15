@@ -10,6 +10,7 @@ public class Principal extends javax.swing.JFrame {
 
     public Principal() {
         initComponents();
+        this.setLocation(400, 100);
     }
     
     @SuppressWarnings("unchecked")
@@ -24,7 +25,7 @@ public class Principal extends javax.swing.JFrame {
         BtInventario = new javax.swing.JButton();
         BtVentas = new javax.swing.JButton();
         BtCompras = new javax.swing.JButton();
-        BtVentas2 = new javax.swing.JButton();
+        BtClientes = new javax.swing.JButton();
         BtVentas3 = new javax.swing.JButton();
         BtVentas4 = new javax.swing.JButton();
         BtVentas5 = new javax.swing.JButton();
@@ -68,8 +69,13 @@ public class Principal extends javax.swing.JFrame {
         BtCompras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagenesPrincipal/Compras30.png"))); // NOI18N
         BtCompras.setText("COMPRAS");
 
-        BtVentas2.setFont(new java.awt.Font("Century Schoolbook", 0, 14)); // NOI18N
-        BtVentas2.setText("VENTAS");
+        BtClientes.setFont(new java.awt.Font("Century Schoolbook", 0, 14)); // NOI18N
+        BtClientes.setText("REGISTRO CLIENTES");
+        BtClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtClientesActionPerformed(evt);
+            }
+        });
 
         BtVentas3.setFont(new java.awt.Font("Century Schoolbook", 0, 14)); // NOI18N
         BtVentas3.setText("VENTAS");
@@ -88,7 +94,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelLayout.createSequentialGroup()
                         .addGap(116, 116, 116)
-                        .addComponent(BtVentas2, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(BtClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addComponent(BtInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -121,7 +127,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(BtCompras))
                 .addGap(78, 78, 78)
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtVentas2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BtClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtVentas3, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BtVentas4, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
@@ -180,6 +186,12 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jrmInformacionActionPerformed
 
+    private void BtClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtClientesActionPerformed
+         Clientes  inven = new Clientes();
+        inven.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_BtClientesActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -216,10 +228,10 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtClientes;
     private javax.swing.JButton BtCompras;
     private javax.swing.JButton BtInventario;
     private javax.swing.JButton BtVentas;
-    private javax.swing.JButton BtVentas2;
     private javax.swing.JButton BtVentas3;
     private javax.swing.JButton BtVentas4;
     private javax.swing.JButton BtVentas5;
