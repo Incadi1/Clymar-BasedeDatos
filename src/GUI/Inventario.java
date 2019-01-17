@@ -435,7 +435,7 @@ public class Inventario extends javax.swing.JFrame {
     private void btAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAgregarActionPerformed
         try {
             PreparedStatement pps = Conne.prepareStatement("INSERT INTO inventario(Fecha, Referencia, Cantidad, Nombre_Producto, "
-                    + "Observaciones, Valor, Valor_Venta) VALUE(?,?,?,?,?,?,?)");
+                    + "Observaciones, Valor, Valor_Venta) VALUES (?,?,?,?,?,?,?)");
             pps.setString(1, txFecha.getText());
             pps.setString(2, txRef.getText());
             pps.setString(3, txCant.getText());
@@ -470,12 +470,12 @@ public class Inventario extends javax.swing.JFrame {
         modelo.addColumn("VALOR VENTA");
         jTaConsultaInventario.setModel(modelo);
 
-        String Sql = "";
+        String Sql = " ";
 
         if (ValorBuscar.equals("")) {
             Sql = "SELECT * FROM inventario";
         } else {
-            Sql = "SELECT * FROM inventario WHERE " + atributo + "='" + ValorBuscar + "'";
+            Sql = "SELECT * FROM inventario WHERE  " + atributo + "= ' " + ValorBuscar + " ' ";
         }
 
         String Datos[] = new String[7];
@@ -527,7 +527,7 @@ public class Inventario extends javax.swing.JFrame {
     private void btModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModificarActionPerformed
         int Fila = jTaConsultaInventario.getSelectedRow();
 
-        if (Fila >= 1) {
+        if (Fila >= 0) {
 
             txFecha.setText(jTaConsultaInventario.getValueAt(Fila, 0).toString());
             txRef.setText(jTaConsultaInventario.getValueAt(Fila, 1).toString());
@@ -540,7 +540,9 @@ public class Inventario extends javax.swing.JFrame {
             Desbloquear();
             btLimpiar.setEnabled(true);
             btActualizar.setEnabled(true);
-            btNuevo.setEnabled(true);
+            btNuevo.setEnabled(false);
+            btBuscar.setEnabled(false);
+            btRefrescar.setEnabled(true);
             
         } else {
             JOptionPane.showMessageDialog(null, "¡Casilla no seleccionada!");
@@ -552,9 +554,9 @@ public class Inventario extends javax.swing.JFrame {
 //--------------------------------------------------------------------------------------/NO FUNCIONA/--------------------------------------------------------------------------------------
     private void btActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btActualizarActionPerformed
         try {
-            PreparedStatement pps = Conne.prepareStatement("UPDATE inventario SET '" + ",Fecha='" + txFecha.getText() + ",Referencia='" + txRef.getText()
-                    + ",Cantidad='" + txCant.getText() + ",Nombre_Producto='" + txNomProducto.getText() + ",Observaciones='"
-                    + txObservaciones.getText() + "',Valor='" + txVrProduto.getText() + ",Valor_Venta='" + txVrVenta.getText() + "WHERE Ref'erencia= " + txBuscar.getText() + "'");
+            PreparedStatement pps = Conne.prepareStatement("UPDATE inventario SET Fecha=' " + txFecha.getText() + " ' ,Referencia=' " + txRef.getText()
+                    + " ' ,Cantidad=' " + txCant.getText() + " ' ,Nombre_Producto=' " + txNomProducto.getText() + " ' ,Observaciones=' " + txObservaciones.getText() 
+                    + " ' ,Valor=' " + txVrProduto.getText() + " ' ,Valor_Venta=' " + txVrVenta.getText() + " ' WHERE Ref'erencia=' " + txBuscar.getText() + " ' ");
             pps.executeUpdate();
             JOptionPane.showMessageDialog(null, "Se actualizarón los datos");
 
@@ -570,14 +572,14 @@ public class Inventario extends javax.swing.JFrame {
     }//GEN-LAST:event_btActualizarActionPerformed
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
 
-//---   /FALLA- SELECCIONO EL QUE QUIERO BORRAR U SE ELIMINAN OTROS QUE NO ESTAN SELECCIONADOS/--------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
     private void btEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarActionPerformed
         int FilaEliminar = jTaConsultaInventario.getSelectedRow();
-        String Valor = jTaConsultaInventario.getValueAt(WIDTH, 1).toString();
+        String Valor = jTaConsultaInventario.getValueAt(FilaEliminar, 0).toString();
 
-        if (FilaEliminar >= 1) {
+        if (FilaEliminar >= 0) {
             try {
-                PreparedStatement pps = Conne.prepareStatement("DELETE FROM inventario WHERE Referencia= '" + Valor + " '");
+                PreparedStatement pps = Conne.prepareStatement("DELETE FROM inventario WHERE Fecha= ' " + Valor + " ' ");
                 pps.executeUpdate();
                 JOptionPane.showMessageDialog(null, "Se elimino el producto");
                 TablaMostrar("");
@@ -609,10 +611,10 @@ public class Inventario extends javax.swing.JFrame {
 //--------------------------------------------------------------------------------------//--------------------------------------------------------------------------------------
 
     private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
-
+       
         atributo = jItemBuscar.getSelectedItem().toString();
         TablaMostrar(txBuscar.getText());
-
+        
     }//GEN-LAST:event_btBuscarActionPerformed
 
     private void btRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegresarActionPerformed
